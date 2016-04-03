@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class PostServiceImpl implements PostService{
 
-    private static final Logger logger = Logger.getLogger(CategoryServiceImpl.class);
+    private static final Logger logger = Logger.getLogger(PostServiceImpl.class);
 
     private PostDao postDao;
 

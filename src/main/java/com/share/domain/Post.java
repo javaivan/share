@@ -4,18 +4,11 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "post")
 public class Post {
 
-
-	@Id
-	@Column(name = "id")
-	@GeneratedValue
 	private Integer id;
-
-	@Column(name = "title")
 	private String title;
+	private Set<Category> categories = new HashSet<Category>(0);
 
 	public Post() {
 	}
@@ -45,22 +38,18 @@ public class Post {
 		this.title = title;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "post_category",
-			joinColumns = { @JoinColumn(name = "post_id")},
-			inverseJoinColumns = {@JoinColumn(name = "category_id") })
-	private Set<Category> categories = new HashSet<Category>();
-
 	public Set<Category> getCategories() {  return categories;}
+
 	public void setCategories(Set<Category> categories) {   this.categories = categories;}
 
 	@Override
 	public String toString() {
 		String textString = "Post [id=" + id + ", title=" + title + ", categories = ";
-
-		for (Category category: this.categories){
+	if(this.categories!=null) {
+		for (Category category : this.categories) {
 			textString += " ' " + category + " ' ";
 		}
+	}
 		textString += "]";
 
 		return textString;

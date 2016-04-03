@@ -30,16 +30,10 @@
   <!-- auto create tables -->
   <property name="hbm2ddl.auto">update</property>
 
-     <mapping class="com.share.domain.Post"/>
-     <mapping class="com.share.domain.Category"/>
+     <mapping resource="com/share/domain/Post.xml" />
+     <mapping resource="com/share/domain/Category.xml" />
 
 <!--  &lt;!&ndash; Mappings &ndash;&gt;
-  <mapping class="ch.bsgroup.scrumit.domain.Person"/>
-  <mapping class="ch.bsgroup.scrumit.domain.Project"/>
-  <mapping class="ch.bsgroup.scrumit.domain.Sprint"/>
-  <mapping class="ch.bsgroup.scrumit.domain.UserStory"/>
-  <mapping class="ch.bsgroup.scrumit.domain.Task"/>
-  <mapping class="ch.bsgroup.scrumit.domain.BurnDown"/>
   &lt;!&ndash; Envers &ndash;&gt;
   <event type="post-insert">
    <listener class="org.hibernate.envers.event.AuditEventListener"/>

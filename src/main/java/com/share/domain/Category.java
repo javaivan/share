@@ -1,25 +1,25 @@
 package com.share.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
-@Entity
-@Table(name = "caterory")
 public class Category {
 
-
-	@Id
-	@Column(name = "id")
-	@GeneratedValue
 	private Integer id;
-
-	@Column(name = "title")
 	private String title;
+	private Set<Post> posts = new HashSet<Post>(0);
 
 	public Category() {
 	}
 
 	public Category(String title) {
 		this.title = title;
+	}
+
+	private Category(String title, Set<Post> posts){
+		this.title = title;
+		this.posts = posts;
 	}
 
 	public Integer getId() {
@@ -36,6 +36,14 @@ public class Category {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Set<Post> getPosts(){
+		return  this.posts;
+	}
+
+	public void setPosts(Set<Post> posts){
+		this.posts = posts;
 	}
 
 	@Override
