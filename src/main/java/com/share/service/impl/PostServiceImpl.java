@@ -21,10 +21,6 @@ public class PostServiceImpl implements PostService{
         this.postDao = postDao;
     }
 
-    public PostServiceImpl(){
-        postDao = new PostDaoImpl();
-    }
-
 
     public Post add(Post post) {
         logger.debug("PostServiceImpl: add: " + post);

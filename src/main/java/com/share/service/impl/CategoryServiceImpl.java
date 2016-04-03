@@ -21,12 +21,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     private CategoryDao categoryDao;
 
-    public void setPostDao(CategoryDao categoryDao){
+    public void setCategoryDao(CategoryDao categoryDao){
         this.categoryDao = categoryDao;
-    }
-
-    public CategoryServiceImpl(){
-        categoryDao = new CategotyDaoImpl();
     }
 
     public Category add(Category category) {
